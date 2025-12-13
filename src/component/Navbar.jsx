@@ -3,9 +3,10 @@ import Wrapper from './Wrapper'
 
 const Navbar = () => {
   return (
+    <div className='bg-base-200 '>
     <Wrapper >
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar shadow-sm">
   <div className="flex-1">
     <a className="btn btn-ghost text-xl">News Application</a>
   </div>
@@ -21,6 +22,7 @@ const Navbar = () => {
 </div>
     </div>
     </Wrapper>
+    </div>
   )
 }
 
