@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import Wrapper from "../Wrapper";
-import axios from "axios";
-
+// import api from "../../config/axios";
+import useNewsContext from "../../context/useNewsContext";
 const News = ({className}) => {
+  const state = useNewsContext();
+  console.log(state)
 
 const fetchNews = async()=>{
-  const response = await axios('https://newsapi.org/v2/everything?q=bitcoin&apiKey=dd57c13d452a4676b54179368fd469f2')
-console.log(response.data)
+//   const response = await api.get(`/everything?q=bitcoin&apiKey=${import.meta.env.VITE_API_KEY}`)
+// console.log(response.data)
 }
 
 useEffect(()=>{
