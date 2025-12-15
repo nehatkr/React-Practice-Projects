@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Wrapper from "../Wrapper";
+import axios from "axios";
 
 const News = ({className}) => {
+
+const fetchNews = async()=>{
+  const response = await axios('https://newsapi.org/v2/everything?q=bitcoin&apiKey=dd57c13d452a4676b54179368fd469f2')
+console.log(response.data)
+}
+
+useEffect(()=>{
+  fetchNews();
+},[])
+
   return (
     <Wrapper>
       <div className={`grid grid-cols-4 gap-6 ${className}`}>
