@@ -1,12 +1,12 @@
 import React from 'react'
 import Wrapper from './Wrapper'
 
-const Category = () => {
+const Category = ({className}) => {
    
     const categories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology']
   return (
     <Wrapper>
-    <div className=' max-w-full w-fit flex  gap-5 m-auto overflow-auto px-4 scrollbar-none'>
+    <div className={` max-w-full w-fit flex  gap-5 m-auto overflow-auto px-4 scrollbar-none ${className}`}>
        { categories.map((Category)=>{
         return(
 

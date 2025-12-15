@@ -9,7 +9,7 @@ function App() {
   return (
     <>
      <Navbar />
-     <Category />
+     <Category className='py-10' />
      <News />
     </>
   )
