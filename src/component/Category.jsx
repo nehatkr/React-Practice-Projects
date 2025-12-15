@@ -5,8 +5,9 @@ const Category = ({className}) => {
    
     const categories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology']
   return (
+    <div className={`${className}`}>
     <Wrapper>
-    <div className={` max-w-full w-fit flex  gap-5 m-auto overflow-auto px-4 scrollbar-none ${className}`}>
+    <div className={` max-w-full w-fit flex  gap-5 m-auto overflow-auto px-4 scrollbar-none`}>
        { categories.map((Category)=>{
         return(
 
@@ -16,6 +17,7 @@ const Category = ({className}) => {
       
     </div>
     </Wrapper>
+    </div>
   )
 }
 
