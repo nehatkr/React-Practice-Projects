@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import Wrapper from "../Wrapper";
 // import api from "../../config/axios";
-import useNewsContext from "../../context/useNewsContext";
+import { useNewsContext } from "../../context/NewsContext";
+
 const News = ({className}) => {
   const state = useNewsContext();
   console.log(state)

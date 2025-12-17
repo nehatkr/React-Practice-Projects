@@ -1,8 +1,10 @@
-import React, { Children, useState } from 'react'
+/* eslint-disable react-refresh/only-export-components */
+import React, { Children, useContext, useState } from 'react'
 import { createContext } from 'react'
-
+// create context
 const NewsContext = createContext(null);
 
+// Provide context
 const NewsContextProvider = ({Children}) =>{
     const [news, setNews] = useState([]);
     const value = {
@@ -16,5 +18,8 @@ const NewsContextProvider = ({Children}) =>{
     )
 }
 
+const useNewsContext = () => {
+  return useContext(NewsContext);
+};
 
-export default NewsContextProvider;
+export {NewsContextProvider, useNewsContext};
