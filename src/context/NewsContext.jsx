@@ -1,25 +1,37 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { Children, useContext, useState } from 'react'
-import { createContext } from 'react'
-// create context
-const NewsContext = createContext(null);
+import {createContext} from "react";
+import {useState, useContext} from "react";
+import api from '../config/axios'
 
-// Provide context
-const NewsContextProvider = ({Children}) =>{
-    const [news, setNews] = useState([]);
-    const value = {
-        news,
-        setNews
+const NewsContext=createContext();
+
+const NewsContextProvider =({children})=>{
+
+    const [news, setNews]=useState([]);
+
+    
+    const fetchNews= async(url="/everything?q=india")=>{
+        try{
+            const response=await api.get(`${url}&apiKey=${import.meta.env.VITE_API_KEY}`)
+            return response.data;
+        } catch (error){
+            console.log(error);
+            
+        }
+            
     }
-    return(
+    const value ={
+        news,
+        setNews,
+        fetchNews
+    }
+    return (
         <NewsContext.Provider value={value}>
-            {Children}
+                  {children}
         </NewsContext.Provider>
     )
+} 
+const useNewsContext= ()=>{
+    return useContext(NewsContext);
 }
-
-const useNewsContext = () => {
-  return useContext(NewsContext);
-};
-
-export {NewsContextProvider, useNewsContext};
+export {NewsContextProvider, useNewsContext}
